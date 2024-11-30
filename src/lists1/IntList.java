@@ -1,10 +1,10 @@
-package list1;
+package lists1;
 
-public class intList {
+public class IntList {
     public int first;
-    public intList rest;
+    public IntList rest;
 
-    public intList(int f, intList r) {
+    public IntList(int f, IntList r) {
         first = f;
         rest = r;
     }
@@ -17,7 +17,7 @@ public class intList {
     }
 
     public int iterativeSize() {
-        intList p = this;
+        IntList p = this;
         int size = 0;
         while (p != null) {
             size++;
@@ -34,9 +34,9 @@ public class intList {
     }
 
     public static void main(String[] args) {
-        intList L = new intList(15, null);
-        L = new intList(10, L);
-        L = new intList(5, L);
+        IntList L = new IntList(15, null);
+        L = new IntList(10, L);
+        L = new IntList(5, L);
 
         System.out.println(L.size());
         System.out.println(L.iterativeSize());

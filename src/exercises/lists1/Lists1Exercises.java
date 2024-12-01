@@ -1,4 +1,6 @@
-package lists1;
+package exercises.lists1;
+
+import lists1.IntList;
 
 public class Lists1Exercises {
     /** Returns an IntList identical to L, but with

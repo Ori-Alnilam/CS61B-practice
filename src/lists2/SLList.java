@@ -15,7 +15,13 @@ public class SLList {
     private IntNode first;
     private int size;
 
-    /** 构造函数 */
+    /** 构造函数1: 空列表 */
+    public SLList() {
+        // Empty List
+        first = null;
+        size = 0;
+    }
+    /** 构造函数2 */
     public SLList(int x) {
         first = new IntNode(x, null);
         size = 1;
@@ -31,6 +37,11 @@ public class SLList {
     /** Add x to the end of the list. */
     public void addLast(int x) {
         size++;
+
+        if (first == null) {
+            first = new IntNode(x, null);
+            return;
+        }
 
         IntNode p = first;
 
@@ -50,6 +61,10 @@ public class SLList {
     }
 
     public static void main(String[] args) {
+        SLList emptyList = new SLList();
+        emptyList.addLast(20);
+        System.out.println(emptyList.getFirst());
+
         SLList L = new SLList(10);
         L.addFirst(5);
         L.addLast(15);

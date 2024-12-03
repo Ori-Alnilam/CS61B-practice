@@ -13,19 +13,25 @@ public class SLList {
     }
     /** 实例变量 */
     private IntNode first;
+    private int size;
 
     /** 构造函数 */
     public SLList(int x) {
         first = new IntNode(x, null);
+        size = 1;
     }
 
     /** Add x to the front of the list. */
     public void addFirst(int x) {
+        size++;
+
         first = new IntNode(x, first);
     }
 
     /** Add x to the end of the list. */
     public void addLast(int x) {
+        size++;
+
         IntNode p = first;
 
         while (p.next != null) {
@@ -39,33 +45,14 @@ public class SLList {
         return first.item;
     }
 
-    public int iterativeSize() {
-        int size = 0;
-        IntNode p = first;
-        while (p != null) {
-            size++;
-            p = p.next;
-        }
+    public int size() {
         return size;
     }
 
-    /** Return the size of the list that starts at IntNode p. */
-    public static int size(IntNode p) {
-        if (p.next == null) {
-            return 1;
-        }
-        return 1 + size(p.next);
-    }
-
-    public int size() {
-        return size(first);
-    }
-
     public static void main(String[] args) {
-        SLList L = new SLList(15);
-        L.addFirst(10);
+        SLList L = new SLList(10);
         L.addFirst(5);
-        L.addLast(20);
+        L.addLast(15);
         System.out.println(L.getFirst());
         System.out.println(L.size());
 

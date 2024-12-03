@@ -11,19 +11,20 @@ public class SLList {
             next = n;
         }
     }
-    /** 实例变量 */
-    private IntNode first;
+    /** The first item (if it exists) is at sentinel.next. */
+    private IntNode sentinel;
     private int size;
 
     /** 构造函数1: 空列表 */
     public SLList() {
         // Empty List
-        first = null;
+        sentinel = new IntNode(63, null);
         size = 0;
     }
     /** 构造函数2 */
     public SLList(int x) {
-        first = new IntNode(x, null);
+        sentinel = new IntNode(63, null);
+        sentinel.next = new IntNode(x, null);
         size = 1;
     }
 
@@ -31,19 +32,14 @@ public class SLList {
     public void addFirst(int x) {
         size++;
 
-        first = new IntNode(x, first);
+        sentinel.next = new IntNode(x, sentinel.next);
     }
 
     /** Add x to the end of the list. */
     public void addLast(int x) {
         size++;
 
-        if (first == null) {
-            first = new IntNode(x, null);
-            return;
-        }
-
-        IntNode p = first;
+        IntNode p = sentinel;
 
         while (p.next != null) {
             p = p.next;
@@ -53,7 +49,7 @@ public class SLList {
 
     /** Return the first item in the list. */
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     public int size() {
@@ -64,6 +60,7 @@ public class SLList {
         SLList emptyList = new SLList();
         emptyList.addLast(20);
         System.out.println(emptyList.getFirst());
+        System.out.println(emptyList.size());
 
         SLList L = new SLList(10);
         L.addFirst(5);

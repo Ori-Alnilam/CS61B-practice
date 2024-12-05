@@ -10,6 +10,12 @@ public class Sort {
 
     /** Return the smallest String in x. */
     public static String findSmallest(String[] x) {
-        return null;
+        String smallest = x[0];
+        for (String s : x) {
+            if (s.compareTo(smallest) < 0) {
+                smallest = s;
+            }
+        }
+        return smallest;
     }
 }

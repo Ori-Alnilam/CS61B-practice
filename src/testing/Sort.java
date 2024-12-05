@@ -8,6 +8,13 @@ public class Sort {
         // selection sort the rest (using recursion?)
     }
 
+    /** Swap item a with b */
+    public static void swap(String[] x, int a, int b) {
+        String temp = x[a];
+        x[a] = x[b];
+        x[b] = temp;
+    }
+
     /** Return the smallest String in x. */
     public static String findSmallest(String[] x) {
         String smallest = x[0];

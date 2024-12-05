@@ -19,7 +19,19 @@ public class TestSort {
         org.junit.Assert.assertEquals(expected, actual);
     }
 
+    /** Test the Sort.swap method. */
+    public static void testSwap() {
+        String[] input = {"i", "have", "an", "egg"};
+        int a = 0;
+        int b = 2;
+        Sort.swap(input, a, b);
+        String[] expected = {"an", "have", "i", "egg"};
+
+        org.junit.Assert.assertArrayEquals(expected, input);
+
+    }
+
     public static void main(String[] args) {
-        testFindSmallest();
+        testSwap();
     }
 }

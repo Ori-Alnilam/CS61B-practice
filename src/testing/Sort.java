@@ -8,8 +8,14 @@ public class Sort {
         // find the smallest item
         // move it to the front
         // selection sort the rest (using recursion?)
+        sort(x, 0);
+    }
+
+    /** Sort x starting at position start */
+    private static void sort(String[] x, int start) {
         int smallestIndex = findSmallest(x);
-        swap(x, 0, smallestIndex);
+        swap(x, start, smallestIndex);
+        sort(x, start + 1);
     }
 
     /** Swap item a with b */

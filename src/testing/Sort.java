@@ -1,11 +1,15 @@
 package testing;
 
+import java.util.Arrays;
+
 public class Sort {
     /** Sorts strings destructively. */
     public static void sort(String[] x) {
         // find the smallest item
         // move it to the front
         // selection sort the rest (using recursion?)
+        int smallestIndex = findSmallest(x);
+        swap(x, 0, smallestIndex);
     }
 
     /** Swap item a with b */
@@ -15,14 +19,14 @@ public class Sort {
         x[b] = temp;
     }
 
-    /** Return the smallest String in x. */
-    public static String findSmallest(String[] x) {
-        String smallest = x[0];
+    /** Return the index of smallest String in x. */
+    public static int findSmallest(String[] x) {
+        int smallestIndex = 0;
         for (String s : x) {
-            if (s.compareTo(smallest) < 0) {
-                smallest = s;
+            if (s.compareTo(x[smallestIndex]) < 0) {
+                smallestIndex = Arrays.asList(x).indexOf(s);
             }
         }
-        return smallest;
+        return smallestIndex;
     }
 }

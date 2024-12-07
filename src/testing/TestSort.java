@@ -13,9 +13,9 @@ public class TestSort {
     /** Test the Sort.findSmallest method. */
     public static void testFindSmallest() {
         String[] input = {"i", "have", "an", "egg"};
-        String expected = "an";
+        int expected = 2;
 
-        String actual = Sort.findSmallest(input);
+        int actual = Sort.findSmallest(input);
         org.junit.Assert.assertEquals(expected, actual);
     }
 

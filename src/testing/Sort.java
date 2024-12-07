@@ -1,7 +1,5 @@
 package testing;
 
-import java.util.Arrays;
-
 public class Sort {
     /** Sorts strings destructively. */
     public static void sort(String[] x) {
@@ -13,7 +11,10 @@ public class Sort {
 
     /** Sort x starting at position start */
     private static void sort(String[] x, int start) {
-        int smallestIndex = findSmallest(x);
+        if (start == x.length) {
+            return;
+        }
+        int smallestIndex = findSmallest(x, start);
         swap(x, start, smallestIndex);
         sort(x, start + 1);
     }
@@ -26,11 +27,11 @@ public class Sort {
     }
 
     /** Return the index of smallest String in x. */
-    public static int findSmallest(String[] x) {
-        int smallestIndex = 0;
-        for (String s : x) {
-            if (s.compareTo(x[smallestIndex]) < 0) {
-                smallestIndex = Arrays.asList(x).indexOf(s);
+    public static int findSmallest(String[] x, int start) {
+        int smallestIndex = start;
+        for (int i = start; i < x.length; i++) {
+            if (x[i].compareTo(x[smallestIndex]) < 0) {
+                smallestIndex = i;
             }
         }
         return smallestIndex;

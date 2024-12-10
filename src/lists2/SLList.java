@@ -12,7 +12,7 @@ public class SLList {
         }
     }
     /** The first item (if it exists) is at sentinel.next. */
-    private IntNode sentinel;
+    private final IntNode sentinel;
     private int size;
 
     /** 构造函数1: 空列表 */
@@ -67,6 +67,5 @@ public class SLList {
         L.addLast(15);
         System.out.println(L.getFirst());
         System.out.println(L.size());
-
     }
 }

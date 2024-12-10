@@ -13,12 +13,12 @@ public class Lists1Exercises {
         }
 
         IntList Q = new IntList(L.first + x, null);
-        IntList p = L.rest;
         IntList ptr = Q;
-        while (p != null) {
-            ptr.rest = new IntList(p.first + x, null);
+        L = L.rest;
+        while (L != null) {
+            ptr.rest = new IntList(L.first + x, null);
             ptr = ptr.rest;
-            p = p.rest;
+            L = L.rest;
         }
 
         return Q;

@@ -52,12 +52,24 @@ public class SLList {
         return sentinel.next.item;
     }
 
+    /** Delete the first item in the list. */
+    public void deleteFirst() {
+        if (sentinel.next == null) {
+            System.out.println("Empty list!");
+            return;
+        }
+        System.out.println("Delete " + sentinel.next.item);
+        sentinel.next = sentinel.next.next;
+        size--;
+    }
+
     public int size() {
         return size;
     }
 
     public static void main(String[] args) {
         SLList emptyList = new SLList();
+        emptyList.deleteFirst();
         emptyList.addLast(20);
         System.out.println(emptyList.getFirst());
         System.out.println(emptyList.size());
@@ -65,6 +77,7 @@ public class SLList {
         SLList L = new SLList(10);
         L.addFirst(5);
         L.addLast(15);
+        L.deleteFirst();
         System.out.println(L.getFirst());
         System.out.println(L.size());
     }
